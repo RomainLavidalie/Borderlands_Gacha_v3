@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class MenuControl : MonoBehaviour
 {
@@ -34,7 +36,7 @@ public class MenuControl : MonoBehaviour
         int typePick;
         int rarityPick;
 
-        Console.WriteLine("Current level : ");
+        Debug.Log("Current level : ");
         currentLevel = Convert.ToInt32(Console.ReadLine());
 
         for (i = 0; i < 9; i++)
@@ -44,8 +46,7 @@ public class MenuControl : MonoBehaviour
             rarityPick = rand.Next(3);
             level = rand.Next(currentLevel - 5, currentLevel + 5);
 
-            Console.WriteLine("Level {0} {1} {2} {3}\n", level, weaponRarity[rarityPick],
-                weaponManufacturer[manufacturerPick], weaponType[typePick]);
+            Debug.Log("Level " + level + weaponRarity[rarityPick]+ weaponManufacturer[manufacturerPick] + weaponType[typePick]);
         }
 
         ;
