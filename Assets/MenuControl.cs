@@ -41,6 +41,7 @@ public class MenuControl : MonoBehaviour
 
         for (i = 0; i < 9; i++)
         {
+            
             manufacturerPick = rand.Next(8);
             typePick = rand.Next(5);
             rarityPick = rand.Next(3);
