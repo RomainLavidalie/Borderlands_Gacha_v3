@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
     private List<WeaponBox> weaponBoxes = new List<WeaponBox>();
+    [SerializeField] private GameObject weaponBoxPrefab;
     
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class MenuManager : MonoBehaviour
 
     void gachaRoll()
     {
-        WeaponBox wb = GameObject.Instantiate(WeaponBox);
+        var myObject = Instantiate(weaponBoxPrefab);
+        myObject.AddComponent<WeaponBox>();
     }
 }
