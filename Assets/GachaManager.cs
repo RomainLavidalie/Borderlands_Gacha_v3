@@ -18,16 +18,17 @@ public class GachaManager : MonoBehaviour
     {
         {0, "Common"}, {1, "Uncommon"}, {2, "Rare"}, {3, "Very Rare"}
     };
-
-    private static Dictionary<int, Weapon> weaponsList = new Dictionary<int, Weapon>();
-        
-        
-    class Weapon
+    
+    private List<WeaponBox> weaponBoxes = new List<WeaponBox>();
+    [SerializeField] private WeaponBox weaponBoxPrefab;
+    
+    
+    public class Weapon
     {
-        private string weaponManufacturer;
-        private string weaponType;
-        private string weaponRarity;
-        private int weaponLevel;
+        public string weaponManufacturer;
+        public string weaponType;
+        public string weaponRarity;
+        public int weaponLevel;
 
         public Weapon()
         {
@@ -49,9 +50,23 @@ public class GachaManager : MonoBehaviour
         
     }
 
-    void tenRoll()
+    void TenRoll()
     {
         for (int i = 0; i < 10; i++)
-            weaponsList.Add(i, new Weapon());
+        {
+            Weapon weap = new Weapon();
+            var weaponBoxGO = Instantiate(weaponBoxPrefab);
+            var weaponBox = weaponBoxGO.GetComponent<WeaponBox>();
+            weaponBox.rarity.sprite = Resources.Load("WeaponBox/Rarities/" + weap.weaponRarity) as Sprite;
+            weaponBox.type.sprite = Resources.Load("WeaponBox/WeaponArt/" + weap.weaponRarity) as Sprite;
+            weaponBox.manufacturer.text = weap.weaponManufacturer;
+            weaponBox.level.text = weap.weaponLevel.ToString();
+            weaponBoxes.Add(weaponBox);
+        }
+    }
+    
+    void gachaPrint()
+    {
+        
     }
 }

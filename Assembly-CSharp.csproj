@@ -52,7 +52,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\MenuManager.cs" />
      <Compile Include="Assets\GachaManager.cs" />
      <Compile Include="Assets\WeaponBox.cs" />
  <Reference Include="UnityEngine">
